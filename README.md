@@ -1,19 +1,29 @@
-C++ STL Quick Help
-It contains C++ STLs usage and quick help with easy to understand comments and examples (copy+paste to use). I learned these while solving different kinds of Leetcode Questions.
-I will be using "int, string etc" for ease and not complex entities like pairs, structs etc 😉. You can replace it with any data structure If you are confused with the syntax or description, see the example. I am sure that will clear things BECAUSE I have specifically chosen
-🔎 "EASY + IMPORTANT + MOST USED" examples. Last but not least, I have added Leetcode Qns also which can be easily solved using STLs
+# C++ STL Quick Help
+It contains C++ STLs usage and quick help with easy to understand comments and examples (copy+paste to use).
+I learned these while solving different kinds of Leetcode Questions.  
+I will be using "int, string etc" for ease and not complex entities like pairs, structs etc 😉. You can replace it with any data structure
+If you are confused with the syntax or description, see the example. I am sure that will clear things BECAUSE I have specifically chosen  
+:mag_right: "EASY + IMPORTANT + MOST USED" examples.
+Last but not least, I have added Leetcode Qns also which can be easily solved using STLs
 
-📝Different ways of using priority_queue (i.e. heap) 🗻
-Default declarations
+### :memo:Different ways of using priority_queue (i.e. heap) :mount_fuji:
+
+- Default declarations
+```c++
 priority_queue<int> pq;                            //creates max-heap
 priority_queue<int, vector<int>> pq;               //creates max-heap
+```
+<br>
 
-writing comparator function for priority_queue
+- writing comparator function for priority_queue
+```c++
 1. Using in-built comparator provided by C++ : 
 
 priority_queue<int, vector<int>, greater<int>> pq;  //creates min-heap
 priority_queue< pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>> > pq; //min_heap of pairs
 priority_queue< pair<int, int>, vector<pair<int, int>>, greater<> > pq;               //min_heap of pairs
+```
+```c++
 2. Using user defined comparator as a structure
 
 struct comp {
@@ -24,6 +34,9 @@ struct comp {
 };
 
 priority_queue<int, vector<int>, comp> pq;  //usage
+```
+
+```c++
 3. Using user defined comparator as a function
 
 static bool comp(int &a, int &b) {
@@ -32,6 +45,8 @@ static bool comp(int &a, int &b) {
 }
 
 priority_queue<int, vector<int>, function<bool(int&, int&)> > pq(comp);   //usage
+```
+```c++
 4. Using lambda function
 
 auto comp = [](int &a, int &b) {
@@ -49,7 +64,11 @@ unordered_map<int, int> mp;
 auto comp = [&mp](int &a, int &b) {
     return mp[a] < mp[b]; //etc.
 };
-📝 When and why to use std::move() ⬅️
+
+```
+
+### :memo: When and why to use std::move() :arrow_left:
+```c++
 /*
     To efficiently transfer the resources from source to target.
     By efficient, I mean no usage of extra space and time for creating copy.
@@ -83,7 +102,10 @@ Examples :
     will be moved into the "result".  This is less
     expensive, also means temp will now be empty.
     */
-📝 std::accumulate(begin_iterator, end_iterator, initial_sum) ➕
+```
+
+### :memo: std::accumulate(begin_iterator, end_iterator, initial_sum) :heavy_plus_sign:
+```c++
 int sum = 0;
 vector<int> nums{1, 3, 2, 5};
 sum = accumulate(begin(nums), end(nums), 0);
@@ -91,7 +113,10 @@ sum = accumulate(begin(nums), end(nums), 0);
 cout << sum; //11
 
 Benefit : You didn't have to write for loop to find the sum
-📝 std::accumulate(begin_iterator, end_iterator, initial_sum, lambda) ➕
+```
+
+### :memo: std::accumulate(begin_iterator, end_iterator, initial_sum, lambda) :heavy_plus_sign:
+```c++
 lambda : Binary operation taking an element of type <initial_sum> as first argument and an
             element in the range as second, and which returns a value that can be assigned to type T.
 
@@ -122,7 +147,11 @@ Beautiful example and usage :
 Leetcode-1577 (My Approach - https://leetcode.com/problems/number-of-ways-where-square-of-number-is-equal-to-product-of-two-numbers/discuss/1305961/C%2B-(A-very-simple-Two-Sum-like-approach)
 
 Leetcode-1572 (My Approach - https://leetcode.com/problems/matrix-diagonal-sum/discuss/3498479/Using-C%2B%2B-STL-%3A-accumulate)
-📝 min_element(begin_iterator, end_iterator), max_element(begin_iterator, end_iterator), minmax_element(begin_iterator, end_iterator) 😲
+
+```
+
+### :memo: min_element(begin_iterator, end_iterator), max_element(begin_iterator, end_iterator), minmax_element(begin_iterator, end_iterator) :astonished:
+```c++
 vector<int> nums{1, 3, 2, 5};
 
 int minimumValue = *min_element(begin(nums), end(nums)); //1
@@ -134,7 +163,11 @@ int maximumValue  = *itr.second; //remember, second is maximum //5
 
 
 Benefit : You didn't have to write for loop to find the max or min element
-📝 upper_bound(), lower_bound() in sorted vector, ordered set, ordered map 📤
+```
+
+### :memo: upper_bound(), lower_bound() in sorted vector, ordered set, ordered map :outbox_tray:
+```c++
+
 For vector:
 vector<int> vec{10,20,30,30,20,10,10,20};
 vector<int>::iterator up  = upper_bound(begin(vec), end(vec), 35);//returns iterator to first element "greater" than 35
@@ -155,7 +188,10 @@ JAVA's tree_map equivalent in C++ (in case of map or set)
 There are amazing applications or problems that can be solved using the above concepts.
 Example : My Calendar I (Leetcode - 729) -
          You can find it in my interview_ds_algo repository as well B-)
-📝 std::rotate 🌀
+```
+
+### :memo: std::rotate 🌀
+```c++
 vector<int> vec{1, 2, 3, 4};
 int n = vec.size();
 int k = 2;
@@ -163,12 +199,21 @@ int k = 2;
 rotate(vec.begin(), vec.begin()+k, vec.end());   //Left Rotate by K times
 
 rotate(vec.begin(), vec.begin()+n-k, vec.end()); //Right Rotate by K times
-📝 To check if some rotation of string s can become string t🌀
+
+```
+
+### :memo: To check if some rotation of string s can become string t🌀
+```c++
+
 string s = "abcde";
 string t = "cdeab";
 
 cout << (s.length() == t.length() && (s+s).find(t) != string::npos) << endl;
-📝 std::next_permutation ➡️
+
+```
+
+### :memo: std::next_permutation ➡️
+```c++
 It gives the next lexicographically greater permutation.
 So, if the container is already the greatest permutation (descending order), it returns nothing.
 
@@ -186,7 +231,11 @@ Also see : std::prev_permutation() - It gives just the previous lexicographicall
 But I have never encountered any question where it's required till now. So you can skip it.
     Leetcode - 31  : Next Permutation
     etc.
-📝 std::stringstream ⏩
+```
+
+
+### :memo: std::stringstream :fast_forward:
+```c++
 Usage:
 1) Converting string to number
 2) Count number of words in a string
@@ -229,7 +278,11 @@ Example-3
     Leetcode - 537  : Complex Number Multiplication (Example-3 above)
     Leetcode - 165  : Compare Version Numbers
     etc.
-📝 std::transform(InputIterator first1, InputIterator last1, OutputIterator result, UnaryOperation op) 🤖
+```
+
+
+### :memo: std::transform(InputIterator first1, InputIterator last1, OutputIterator result, UnaryOperation op) :robot:
+```c++
 Applies an operation sequentially to the elements of one (1) or
 two (2) ranges and stores the result in the range that begins at result.
 Uage :
@@ -246,7 +299,11 @@ Example :
     transform(begin(line), end(line), begin(line), ::toupper);
 
     cout << line << endl;
-📝 std::regex_replace 📟
+
+```
+
+### :memo: std::regex_replace :pager:
+```c++
 It converts a regular expression given by user to desired expression given by user.
 
 Example : 
@@ -265,7 +322,10 @@ Example :
     Leetcode - 1108 : Defanging an IP Address
     Leetcode - 1119 : Remove Vowels from a String
     etc.
-📝 std::count_if 🔢
+```
+
+### :memo: std::count_if :1234:
+```c++
 counts the number of elements satisfying a given condition (given by comparator function or lambda)
 
 Example : 
@@ -281,7 +341,10 @@ Example :
     Qns on Leetcode:
     Leetcode - 1773 : Count Items Matching a Rule
     etc.
-📝 std::copy_if 🔢
+```
+
+### :memo: std::copy_if :1234:
+```c++
 Copies the elements to a container
 how copy_if function works : in this function you have to pass four parameters 
 copy_if(begin iterator , end iterator , destination , condition)
@@ -300,7 +363,11 @@ Example :
     Qns on Leetcode:
     Leetcode - 1796 : Second Largest Digit in a String
     etc.
-📝 Writing lambda for upper_bound or lower_bound for vector<pair<int, string>> 🔢
+```
+
+
+### :memo: Writing lambda for upper_bound or lower_bound for vector<pair<int, string>> :1234:
+```c++
 Example-1 : 
         //Let's say you want upper_bound for a variable timestamp, take it in a pair (because it's a vector of pair)
         pair<int, string> ref = make_pair(timestamp, "");
@@ -322,7 +389,11 @@ Example-2 :
 	Leetcode - 744 : Find Smallest Letter Greater Than Target
 	Leetcode - 1351 : Count Negative Numbers in a Sorted Matrix
     
-📝 Writing lambda for unordered_map to make life simple 🔢
+```
+
+
+### :memo: Writing lambda for unordered_map to make life simple :1234:
+```c++
 Example : 
         //Let's say, you want to store different evaluate logic for different operator "+", "-", "*", "/"
 	unordered_map<string, function<int (int, int) > > mp = {
@@ -338,7 +409,13 @@ Example :
 	Qns on Leetcode: 150
 	Leetcode - : Evaluate Reverse Polish Notation
     
-📝 std::set_difference and std::back_inserter 🔢
+```
+
+
+
+
+### :memo: std::set_difference and std::back_inserter :1234:
+```c++
 set_difference -> Copies the elements from the sorted s1 which are not found in the sorted s2 to a container in sorted order
 back_inserter -> Can be used to add elements to the end of a container
 Example : 
@@ -350,3 +427,4 @@ Example :
 	Qns on Leetcode: 2215
 	Leetcode - : Find the Difference of Two Arrays
     
+```
