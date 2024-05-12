@@ -4,7 +4,7 @@ I learned these while solving different kinds of Leetcode Questions.
 I will be using "int, string etc" for ease and not complex entities like pairs, structs etc 😉. You can replace it with any data structure
 If you are confused with the syntax or description, see the example. I am sure that will clear things BECAUSE I have specifically chosen  
 :mag_right: "EASY + IMPORTANT + MOST USED" examples.
-Last but not least, I have added Leetcode Qns also which can be easily solved using STLs
+Last but not least, I have added Leetcode Qns also which can be easily solved using STLs.
 
 ### :memo:Different ways of using priority_queue (i.e. heap) :mount_fuji:
 
